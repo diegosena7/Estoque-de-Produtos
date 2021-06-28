@@ -17,7 +17,7 @@ ArrayList<ProdutosEntity> produtos = (ArrayList<ProdutosEntity>)request.getAttri
 </head>
 <body>
 	<h1>Produtos em Estoque</h1>
-	<a href="" class="botao1">Novo Produto</a>
+	<a href="novoProduto.jsp" class="botao1">Novo Produto</a>
 	<table id="tabela">
 		<thead>
 		<tr>
