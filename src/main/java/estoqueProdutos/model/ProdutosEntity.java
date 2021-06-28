@@ -8,12 +8,12 @@ public class ProdutosEntity {
 	private String nome;
 	private String descricao;
 	private String fabricante;
-	private BigDecimal preco;
+	private String preco;
 	
 	public ProdutosEntity() {
 	}
 	
-	public ProdutosEntity(String id, String nome, String descricao, String fabricante, BigDecimal preco) {
+	public ProdutosEntity(String id, String nome, String descricao, String fabricante, String preco) {
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
@@ -45,10 +45,10 @@ public class ProdutosEntity {
 	public void setFabricante(String fabricante) {
 		this.fabricante = fabricante;
 	}
-	public BigDecimal getPreco() {
+	public String getPreco() {
 		return preco;
 	}
-	public void setPreco(BigDecimal preco) {
+	public void setPreco(String preco) {
 		this.preco = preco;
 	}
 }

@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h1>Cadastrar novo Produto</h1>
-	<form name="frmProdutos" action=""></form>
+	<form name="frmProdutos" action="insert">
 	<table>
 		<tr><td><input type="text" name="nome" placeholder="Nome" class="Caixa1"><td></tr>
 		<tr><td><input type="text" name="descricao" placeholder="Descrição" class="Caixa1"><td></tr>
@@ -21,6 +21,7 @@
 	</table>
 	<br>
 	<input type="button" class="botao1" value="Cadastrar"onclick="validar()">
-	<script type="text/javascript" src="scripts/validador.js"></script>
+	<script src="scripts/validador.js"></script>
+	</form>
 </body>
 </html>
