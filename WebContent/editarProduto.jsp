@@ -18,13 +18,13 @@
 				<td><input type="text" name="nome" class="Caixa1" value="<%out.println(request.getAttribute("nome"));%>"></td>
 			</tr>		
 			<tr>
-				<td><input type="text" name="descricao" class="Caixa1" value="<%out.println(request.getAttribute("descricao"));%>"></td>
+				<td><input type="text" name="descricao" class="Caixa1" value=" <%out.println(request.getAttribute("descricao"));%>"></td>
 			</tr>		
 			<tr>
 				<td><input type="text" name="fabricante" class="Caixa1" value="<%out.println(request.getAttribute("fabricante"));%>"></td>
 			</tr>		
 			<tr>
-			<td><input type="text" name="preco" class="Caixa2" onkeypress="$(this).mask('R$ #.##0,00', {reverse: true});" value="<%out.println(request.getAttribute("preco"));%>"></td>
+			<td><input type="text" name="preco" class="Caixa2" maxlength="9" onkeypress="$(this).mask('R$ ###0.00', {reverse: true});" value="<%out.println(request.getAttribute("preco"));%>"></td>
 			</tr>		
 		</table>
 		<br>

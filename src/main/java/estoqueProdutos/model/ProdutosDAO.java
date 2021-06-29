@@ -5,10 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * The Class ProdutosDAO.
+ */
 public class ProdutosDAO {
 	
+	/** The con DAO. */
 	ConexaoDAO conDAO = new ConexaoDAO();
 
+	/**
+	 * Listar produtos.
+	 * @return the array list
+	 */
 	public ArrayList<ProdutosEntity> listarProdutos() {
 
 		ArrayList<ProdutosEntity> produtos = new ArrayList<>();
@@ -35,6 +43,10 @@ public class ProdutosDAO {
 		}
 	}
 
+	/**
+	 * Cadastrar produtos.
+	 * @param produto the produto
+	 */
 	public void cadastrarProdutos(ProdutosEntity produto) {
 		String inserir = "insert into produto (nome, descricao, fabricante, preco) values(?, ?, ?, ?);";
 		try {
@@ -55,6 +67,10 @@ public class ProdutosDAO {
 		}
 	}
 	
+	/**
+	 * Selecionar produto por id.
+	 * @param produto the produto
+	 */
 	public void selecionarProdutoPorId(ProdutosEntity produto) {
 		String select = "select * from produto where id = ?";
 		try {
@@ -77,6 +93,10 @@ public class ProdutosDAO {
 		}
 	}
 	
+	/**
+	 * Atualizar produto.
+	 * @param produto the produto
+	 */
 	public void atualizarProduto(ProdutosEntity produto) {
 		String update = "update produto set nome = ?, descricao = ?, fabricante = ?, preco = ? where id = ?";
 		try {
@@ -91,6 +111,24 @@ public class ProdutosDAO {
 			
 			pst.executeUpdate();
 			
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Deletar produto.
+	 * @param produto the produto
+	 */
+	public void deletarProduto(ProdutosEntity produto) {
+		String delete = "delete from produto where id = ?";
+		try {
+			Connection con = conDAO.conectaComBD();
+			PreparedStatement pst = con.prepareStatement(delete);
+			pst.setString(1, produto.getId());
+			pst.executeUpdate();
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);

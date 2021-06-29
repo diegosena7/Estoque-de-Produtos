@@ -17,7 +17,7 @@
 		<tr><td><input type="text" name="nome" placeholder="Nome" class="Caixa1"><td></tr>
 		<tr><td><input type="text" name="descricao" placeholder="Descrição" class="Caixa1"><td></tr>
 		<tr><td><input type="text" name="fabricante" placeholder="Fabricante" class="Caixa1"><td></tr>
-		<tr><td><input type="text" name="preco" placeholder="Preço" class="Caixa2" onkeypress="$(this).mask('R$ ###0.00', {reverse: true});"><td></tr>
+		<tr><td>R$ <input type="text" name="preco" maxlength="9" placeholder="Preço" class="Caixa2" onkeypress="$(this).mask('R$ ###0.00', {reverse: true});"><td></tr>
 	</table>
 	<br>
 	<input type="button" class="botao1" value="Cadastrar"onclick="validar()">

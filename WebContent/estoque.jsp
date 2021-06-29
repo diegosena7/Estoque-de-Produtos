@@ -19,6 +19,7 @@ ArrayList<ProdutosEntity> produtos = (ArrayList<ProdutosEntity>)request.getAttri
 <body>
 	<h1>Produtos em Estoque</h1>
 	<a href="novoProduto.jsp" class="botao1">Novo Produto</a>
+	<a href="relatorio" class="botao1">Relatório de Produtos</a>
 	<table id="tabela">
 		<thead>
 		<tr>
@@ -26,7 +27,7 @@ ArrayList<ProdutosEntity> produtos = (ArrayList<ProdutosEntity>)request.getAttri
 			<th>Nome</th>
 			<th>Descrição</th>
 			<th>Fabricante</th>
-			<th>Preço</th>
+			<th>Preço R$</th>
 			<th>Editar/Excluir</th>
 		</tr>
 		</thead>
@@ -37,7 +38,7 @@ ArrayList<ProdutosEntity> produtos = (ArrayList<ProdutosEntity>)request.getAttri
 			<td><%=produtos.get(i).getNome() %></td>
 			<td><%=produtos.get(i).getDescricao() %></td>
 			<td><%=produtos.get(i).getFabricante() %></td>
-			<td><%=produtos.get(i).getPreco() %></td>
+			<td>R$ <%=produtos.get(i).getPreco() %></td>
 			<td>
 				<a href="select?id=<%=produtos.get(i).getId() %>" class="botao1">Editar</a>
 				<a href="javascript: confirmar(<%=produtos.get(i).getId() %>)" class="botao2">Excluir</a>
@@ -46,5 +47,6 @@ ArrayList<ProdutosEntity> produtos = (ArrayList<ProdutosEntity>)request.getAttri
 		<% }%>
 		</tbody>
 	</table>
+	<script src="scripts/confirmador.js"></script>
 </body>
 </html>
