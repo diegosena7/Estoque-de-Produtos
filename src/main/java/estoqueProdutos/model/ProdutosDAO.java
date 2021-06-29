@@ -54,4 +54,24 @@ public class ProdutosDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void editarProdutos(ProdutosEntity produto) {
+		String update = "update produto set nome = ?, descricao = ?, fabricante = ?, preco = ? where id = ?";
+		try {
+			Connection con = conDAO.conectaComBD();
+			PreparedStatement pst = con.prepareStatement(update);
+			
+			pst.setString(1, produto.getNome());
+			pst.setString(2, produto.getDescricao());
+			pst.setString(3, produto.getFabricante());
+			pst.setString(4, produto.getPreco());
+			
+			pst.executeUpdate();
+			
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
+	}
 }

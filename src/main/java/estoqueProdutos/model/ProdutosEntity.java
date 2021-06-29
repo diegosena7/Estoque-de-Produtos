@@ -1,7 +1,5 @@
 package estoqueProdutos.model;
 
-import java.math.BigDecimal;
-
 public class ProdutosEntity {
 
 	private String id;

@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.Contained;
+
 import estoqueProdutos.model.ProdutosDAO;
 import estoqueProdutos.model.ProdutosEntity;
 
-@WebServlet(urlPatterns = {"/ProdutosController", "/main", "/insert"})
+@WebServlet(urlPatterns = {"/ProdutosController", "/main", "/insert", "/update"})
 public class ProdutosController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -22,6 +24,7 @@ public class ProdutosController extends HttpServlet {
     
     final String novoProdutoJsp = "/insert";
     final String indexJsp = "/main";
+    final String editarProdutoJsp = "/update";
     
    public ProdutosController() {
     }
@@ -34,6 +37,8 @@ public class ProdutosController extends HttpServlet {
 			listarProdutos(request, response);
 		}else if(caminhoDaRequisicao.equals(novoProdutoJsp)) {
 			cadastrarProdutos(request, response);
+		}else if (caminhoDaRequisicao.equals(editarProdutoJsp)) {
+			editarProdutos(request, response);
 		}else {
 			response.sendRedirect("main");
 		}
@@ -59,6 +64,17 @@ public class ProdutosController extends HttpServlet {
 		produto.setPreco(request.getParameter("preco"));
 		
 		dao.cadastrarProdutos(produto);
+		
+		response.sendRedirect("main");
+	}
+	
+	protected void editarProdutos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		produto.setNome(request.getParameter("nome"));
+		produto.setDescricao(request.getParameter("descricao"));
+		produto.setFabricante(request.getParameter("fabricante"));
+		produto.setPreco(request.getParameter("preco"));
+		
+		dao.editarProdutos(produto);
 		
 		response.sendRedirect("main");
 	}
