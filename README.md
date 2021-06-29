@@ -1,6 +1,6 @@
 
 # CRUD JSP  
-Projeto de estoque de produtos para fins de estudos, onde foi feito as principais funções de de uma aplicação real utilizando arquitetura MVC.  
+Projeto de estoque de produtos para fins de estudos, onde foi criada as principais funções de de uma aplicação real utilizando arquitetura MVC.  
 
 ## Authors
 
