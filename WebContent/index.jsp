@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<img alt="" src="imagens/produto.png">
+<img alt="" src="imagens/produtoEstoque.png">
 	<h1>Controle de Estoque Produtos</h1>
 	<a href="main" class="botao1">Acessar</a>
 </body>
