@@ -27,7 +27,7 @@ ArrayList<ProdutosEntity> produtos = (ArrayList<ProdutosEntity>)request.getAttri
 			<th>Descrição</th>
 			<th>Fabricante</th>
 			<th>Preço</th>
-			<th>Opções</th>
+			<th>Editar/Excluir</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -38,7 +38,8 @@ ArrayList<ProdutosEntity> produtos = (ArrayList<ProdutosEntity>)request.getAttri
 			<td><%=produtos.get(i).getDescricao() %></td>
 			<td><%=produtos.get(i).getFabricante() %></td>
 			<td><%=produtos.get(i).getPreco() %></td>
-			<td><a href="select?id=<%=produtos.get(i).getId() %>" class="botao1">Editar</a>
+			<td>
+				<a href="select?id=<%=produtos.get(i).getId() %>" class="botao1">Editar</a>
 				<a href="javascript: confirmar(<%=produtos.get(i).getId() %>)" class="botao2">Excluir</a>
 			</td>
 		</tr>	

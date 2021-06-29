@@ -10,35 +10,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.Contained;
-
 import estoqueProdutos.model.ProdutosDAO;
 import estoqueProdutos.model.ProdutosEntity;
 
-@WebServlet(urlPatterns = {"/ProdutosController", "/main", "/insert", "/update"})
+@WebServlet(urlPatterns = {"/ProdutosController", "/main", "/insert", "/select"})
 public class ProdutosController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
     ProdutosDAO dao = new ProdutosDAO();
     ProdutosEntity produto = new ProdutosEntity();
     
-    final String novoProdutoJsp = "/insert";
     final String indexJsp = "/main";
-    final String editarProdutoJsp = "/update";
+    final String inserirProdutoJsp = "/insert";
+    final String selecionarProdutoId = "/select";
     
    public ProdutosController() {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String caminhoDaRequisicao = request.getServletPath();
-		System.out.println(caminhoDaRequisicao);
+		System.out.println("Requisição ao servlet: " + caminhoDaRequisicao);
 		
 		if (caminhoDaRequisicao.equals(indexJsp)) {
 			listarProdutos(request, response);
-		}else if(caminhoDaRequisicao.equals(novoProdutoJsp)) {
+		}else if(caminhoDaRequisicao.equals(inserirProdutoJsp)) {
 			cadastrarProdutos(request, response);
-		}else if (caminhoDaRequisicao.equals(editarProdutoJsp)) {
-			editarProdutos(request, response);
+		}else if (caminhoDaRequisicao.equals(selecionarProdutoId)) {
+			selecionarProduto(request, response);
 		}else {
 			response.sendRedirect("main");
 		}
@@ -68,13 +66,27 @@ public class ProdutosController extends HttpServlet {
 		response.sendRedirect("main");
 	}
 	
+	protected void selecionarProduto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Id do produto recebido: " + request.getParameter("id"));
+		produto.setId(request.getParameter("id"));
+		dao.selecionarProdutoPorId(produto);
+		
+		request.setAttribute("id", produto.getId());
+		request.setAttribute("nome", produto.getNome());
+		request.setAttribute("descricao", produto.getDescricao());
+		request.setAttribute("fabricante", produto.getFabricante());
+		request.setAttribute("preco", produto.getPreco());
+
+		request.getRequestDispatcher("editarProduto.jsp").forward(request, response);
+	}
+	
 	protected void editarProdutos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		produto.setNome(request.getParameter("nome"));
 		produto.setDescricao(request.getParameter("descricao"));
 		produto.setFabricante(request.getParameter("fabricante"));
 		produto.setPreco(request.getParameter("preco"));
 		
-		dao.editarProdutos(produto);
+		dao.atualizarProduto(produto);
 		
 		response.sendRedirect("main");
 	}

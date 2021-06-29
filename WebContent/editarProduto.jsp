@@ -9,16 +9,27 @@
 </head>
 <body>
 	<h1>Editar dados do produto</h1>
-	<form action="update">
+	<form name="frmProdutos" action="update">
 		<table>
-			<tr><td><input type="text" name="id" id="caixa3" readonly value="<%out.println(request.getAttribute("id"));%>"></td></tr>		
-			<tr><td><input type="text" name="nome" id="caixa1" readonly value="<%out.println(request.getAttribute("nome"));%>"></td></tr>		
-			<tr><td><input type="text" name="descricao" id="caixa1" readonly value="<%out.println(request.getAttribute("descricao"));%>"></td></tr>		
-			<tr><td><input type="text" name="fabricante" id="caixa1" readonly value="<%out.println(request.getAttribute("fabricante"));%>"></td></tr>		
-			<tr><td><input type="text" name="preco" id="caixa2" onkeypress="$(this).mask('R$ #.##0,00', {reverse: true});" readonly value="<%out.println(request.getAttribute("preco"));%>"></td></tr>		
+			<tr>
+				<td><input type="text" name="id" id="caixa3" readonly value="<%out.println(request.getAttribute("id"));%>"></td>
+			</tr>		
+			<tr>
+				<td><input type="text" name="nome" class="Caixa1" value="<%out.println(request.getAttribute("nome"));%>"></td>
+			</tr>		
+			<tr>
+				<td><input type="text" name="descricao" class="Caixa1" value="<%out.println(request.getAttribute("descricao"));%>"></td>
+			</tr>		
+			<tr>
+				<td><input type="text" name="fabricante" class="Caixa1" value="<%out.println(request.getAttribute("fabricante"));%>"></td>
+			</tr>		
+			<tr>
+			<td><input type="text" name="preco" class="Caixa2" onkeypress="$(this).mask('R$ #.##0,00', {reverse: true});" value="<%out.println(request.getAttribute("preco"));%>"></td>
+			</tr>		
 		</table>
 		<br>
 	<input type="button" class="botao1" value="Salvar"onclick="validar()">
+	<a type="button" href="main"><input type="button" class="botao1" value="Cancelar"></a>
 	<script src="scripts/validador.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
