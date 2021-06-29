@@ -13,4 +13,5 @@ Projeto de estoque de produtos para fins de estudos, onde foi feito as principai
 
 **Banco de Dados:** MySQL 8.0.20
 
+**Servidor:** Tomcat 9.0.48
   
