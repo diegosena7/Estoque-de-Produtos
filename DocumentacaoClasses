@@ -1,0 +1,39 @@
+1 - Inicia o programa através da classe index.jsp que é responsável por iniciar a view ao usuário com um botão de acesso a classe que contém a lista de produtos.
+
+2 - A classe estoque.jsp é responsável por dinâmicamente retornar uma lista com todos os produtos do BD, onde criamos uma lista de ProdutosEntity que pega o atributo
+produtos com o método getAttribute, esse valor vem preenchido na lista da servlet (ProdutosController) no método listarProdutos. Pegamos o valor de cada atributo através
+do request.getAttribute e usamos uma função javascript validar() para verificar o preenchimento dos inputs.
+Nesta classe podemos cadastrar um novo produto na base de dados ao clicar no botão Novo Produto que envia uma requisição ao servlet para a classe novoProduto.jsp
+Temos a opção de gerar um relatório em PDF com os produtos cadastrados no BD
+Podemos editar os dados de um produto, ao clicar no botão editar é enviado uma requisição ao servlet e este redireciona para a página editarProduto.jsp e na mesma
+tela temos o botão de excluir, onde ao selecionar ele busca o produto pelo id para excluir da base de dados e em seguida retorna a lista atualizada sem o produto
+que foi excluído.
+
+3 - A classe novoProduto.jsp abre uma tela para cadastrarmos um novo produto o formulário valida todos os campos, onde devemos preencher todos os inputs do formulário
+na mesma tela temos o botão de salvar, que persiste o novo produto na base de dados e em seguida reenvia uma requisição ao servlet e este redireciona para a classe
+estoque.jsp que retorna ao usuário a lista de produtos atualizada com o novo produto inserido.
+Temos na mesma tela o botão de voltar, que retorna para a classe estoque.jsp
+
+4 - A classe ProdutosController é a nossa servlet, responsável pelas requisições via browser. Recebemos as requisições através da anotação @WebServlet usando o objeto
+urlPatterns que recebe os valores enviados via action de um form e/ou href de um link nas nossas classes jsp e/ou html.
+Nesta classe temos o método doGet que é o método principal, recebe as requisições e faz as tratativas, no nosso caso ele encaminha de acordo com o tipo de requisição
+para o seu respectivo método.
+
+**Método listarProdutos - Retorna uma lista de produtos proveniente do banco de dados da aplicação, seta o atributo produtos proveniente da lista chamada de listaDeProdutos
+em seguida dispacha a requisição para a classe estoque.jsp usando o RequestDispatcher enviando através do método forward.
+
+**Método cadastrarProdutos - Persiste o novo produto na base de dados, usa o objeto request para obter os parâmetros enviados pelo formulário, em seguida usa o objeto response
+e o método sendRedirect para redirecionar para a classe main (estoque.jsp) que retorna a lista de produtos.
+
+**Método selecionarProdutoPorId - Este método seleciona um produto através do id usando o atributo produto do tipo ProdutosEntity obtendo o id através do getParameter e faz
+a busca por id no banco de dados através do objeto dao que chama o método selecionarProdutoPorId passando o objeto produto como parâmetro para a busca em seguida seta os
+atributos do produto usando o objeto request e dispacha a requisição para a classe editarProduto.jsp
+
+**Método editarProdutos - Este método usa o objeto produto do tipo ProdutosEntity para setar os atributos recebidos do formulário através do getParameter e através do objeto
+dao, chama o método atualizarProduto da classe ProdutosDAO passando o objeto produto como parâmetro para realizar o UPDATE no banco de dados e em seguida usa o objeto response
+e o método sendRedirect para redirecionar para a classe main (estoque.jsp) que retorna a lista de produtos atualizada após as alterações.
+
+**Método excluirProdutos - Este método usa o objeto produto do tipo ProdutosEntity para setar os atributos recebidos do formulário através do getParameter e através do objeto
+dao, chama o método deletarProduto da classe ProdutosDAO passando o objeto produto como parâmetro para realizar o DELETE no banco de dados e em seguida usa o objeto response
+e o método sendRedirect para redirecionar para a classe main (estoque.jsp) que retorna a lista de produtos atualizada após as alterações.
+
