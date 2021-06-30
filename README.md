@@ -1,6 +1,7 @@
 
 # CRUD JSP  
-Projeto de estoque de produtos para fins de estudos, onde foi criada as principais funções de de uma aplicação real utilizando arquitetura MVC.  
+Projeto de estoque de produtos para fins de estudos, onde foi criada as principais funcionalidades de de uma aplicação real utilizando JSP e arquitetura MVC. 
+Para a funcionalidade de exportar relatório em PDF, usado a biblioteca ItextPDF.
 
 ## Authors
 
@@ -14,4 +15,6 @@ Projeto de estoque de produtos para fins de estudos, onde foi criada as principa
 **Banco de Dados:** MySQL 8.0.20
 
 **Servidor:** Tomcat 9.0.48
+
+**Libs:** mysql-connector-java-8.0.20 e itextpdf-5.5.13.2
   
