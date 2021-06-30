@@ -20,13 +20,11 @@ Para a funcionalidade de exportar relatório em PDF, usado a biblioteca ItextPDF
   
 
 Tela inicial
-
-
 ![Acesso a lista de Produtos](telaInicial.jpg)
 
 
 Lista de Produtos
-
+![Listagem de Produtos]( listaDeProdutos.jpg)
 
 
 Tela de Cadastro de Produto
