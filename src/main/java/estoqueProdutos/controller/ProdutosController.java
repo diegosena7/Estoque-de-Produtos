@@ -110,11 +110,6 @@ public class ProdutosController extends HttpServlet {
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	protected void cadastrarProdutos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("nome"));
-		System.out.println(request.getParameter("descricao"));
-		System.out.println(request.getParameter("fabricante"));
-		System.out.println(request.getParameter("preco"));
-		
 		produto.setNome(request.getParameter("nome"));
 		produto.setDescricao(request.getParameter("descricao"));
 		produto.setFabricante(request.getParameter("fabricante"));
