@@ -20,6 +20,7 @@ Para a funcionalidade de exportar relatório em PDF, usado a biblioteca ItextPDF
   
 
 Tela inicial
+
 ![Acesso a lista de Produtos](telaInicial.jpg)
 
 
